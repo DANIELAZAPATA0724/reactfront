@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/NavBar"; // Importa tu componente Navbar
+import CompShowBlogs from "./blog/ShowBlogs";
+import CompCreateBlog from "./blog/CreateBlogs";
+import CompEditBlog from "./blog/EditBlogs";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      
       </header>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CompShowBlogs />} />
+          <Route path="/create" element={<CompCreateBlog />} />
+          <Route path="/edit/:id" element={<CompEditBlog />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
