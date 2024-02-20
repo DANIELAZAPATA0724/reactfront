@@ -4,9 +4,9 @@ import Navbar from "./components/navbar/NavBar.jsx";
 import CompShowBlogs from "./blog/ShowBlogs";
 import CompCreateBlog from "./blog/CreateBlogs";
 import CompEditBlog from "./blog/EditBlogs";
-// import AboutUs from "./pages/AboutUs"; 
-// import Schedule from "./pages/Schedule";
-// import OpeningHours from "./pages/OpeningHours";
+import LoginForm from "./components/login/LoginForm.jsx";
+import AboutUs from "./components/about/AboutUs.jsx";
+
 
 function App() {
   return (
@@ -17,9 +17,12 @@ function App() {
           <Route path="/" element={<CompShowBlogs />} />
           <Route path="/create" element={<CompCreateBlog />} />
           <Route path="/edit/:id" element={<CompEditBlog />} />
-          {/* <Route path="/about-us" element={<AboutUs />} /> */}
-          {/* <Route path="/schedule" element={<Schedule />} /> */}
-          {/* <Route path="/opening-hours" element={<OpeningHours />} /> */}
+          <Route path="/LoginForm" element={<LoginForm />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+
+          
+          
+          {/* Otras rutas aquí */}
         </Routes>
       </BrowserRouter>
     </div>

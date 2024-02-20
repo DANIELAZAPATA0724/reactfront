@@ -52,7 +52,7 @@ const NavBar = () => {
         >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
+              <Link className="nav-link active" to="/AboutUs">
                 About Us
               </Link>
             </li>
@@ -87,7 +87,7 @@ const NavBar = () => {
           </form>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/login">
+              <Link className="nav-link" to="/LoginForm">
                 <FontAwesomeIcon icon={faUser} style={{ fontSize: "1.9rem" }} />
               </Link>
             </li>
