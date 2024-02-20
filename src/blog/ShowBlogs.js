@@ -44,7 +44,7 @@ const ShowBlogs = () => {
             <Card>
               <Card.Img
                 variant="top"
-                src={blog.Url_Image}
+                src={blog.Url_image}
                 style={{ height: "200px", objectFit: "cover" }}
               />
 

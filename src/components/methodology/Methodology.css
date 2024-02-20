@@ -1,0 +1,24 @@
+.metodologia-container {
+    padding: 50px;
+  }
+  
+  .metodologia-title {
+    text-align: center;
+    color: #007bff; /* Puedes ajustar el color según tu paleta de colores */
+    margin-bottom: 30px;
+  }
+  
+  .metodologia-step {
+    background-color: #f8f9fa; /* Color de fondo para cada paso */
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .metodologia-step h2 {
+    color: #343a40; /* Color del título de cada paso */
+  }
+  
+  .metodologia-step p {
+    color: #6c757d; /* Color del texto de cada paso */
+  }

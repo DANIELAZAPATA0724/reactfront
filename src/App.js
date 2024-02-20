@@ -6,6 +6,7 @@ import CompCreateBlog from "./blog/CreateBlogs";
 import CompEditBlog from "./blog/EditBlogs";
 import LoginForm from "./components/login/LoginForm.jsx";
 import AboutUs from "./components/about/AboutUs.jsx";
+import Methodology from "./components/methodology/Methodology.jsx"
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
           <Route path="/create" element={<CompCreateBlog />} />
           <Route path="/edit/:id" element={<CompEditBlog />} />
           <Route path="/LoginForm" element={<LoginForm />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
+c          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/Methodology" element={<Methodology />} />
+
 
           
           

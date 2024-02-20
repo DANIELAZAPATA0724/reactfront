@@ -8,11 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const rootElement = document.getElementById("root");
-
-// Utilizamos createRoot si está disponible, de lo contrario, usamos render
-const createRoot = rootElement.createRoot || ReactDOM.createRoot;
-
-const root = createRoot(rootElement);
+const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
