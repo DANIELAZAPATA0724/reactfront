@@ -1,59 +1,68 @@
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const URI = "http://localhost:8000/blogs/";
 
-const CompShowBlogs = () => {
-    
-  const [blogs, setBlog] = useState([])
-  useEffect( ()=>{
-      getBlogs()
-  },[])
+const ShowBlogs = () => {
+  const [blogs, setBlogs] = useState([]);
 
-  //procedimineto para mostrar todos los blogs
+  useEffect(() => {
+    getBlogs();
+  }, []);
+
   const getBlogs = async () => {
-      const res = await axios.get(URI)
-      setBlog(res.data)
-  }
+    try {
+      const response = await axios.get(URI);
+      setBlogs(response.data);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  };
 
-  //procedimineto para eliminar un blog
   const deleteBlog = async (id) => {
-     await axios.delete(`${URI}${id}`)
-     getBlogs()
-  }
+    try {
+      await axios.delete(`${URI}${id}`);
+      getBlogs();
+    } catch (error) {
+      console.error("Error deleting blog:", error);
+    }
+  };
 
-  return(
-      <div className='container'>
-          <div className='row'>
-              <div className='col'>
-                  <Link to="/create" className='btn btn-primary mt-2 mb-2'><i className="fas fa-plus"></i></Link>
-                  <table className='table'>
-                      <thead className='table-primary'>
-                          <tr>
-                              <th>Title</th>
-                              <th>Content</th>
-                              <th>Actions</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          { blogs.map ( (blog) => (
-                              <tr key={ blog.id}>
-                                  <td> { blog.title } </td>
-                                  <td> { blog.content } </td>
-                                  <td>
-                                      <Link to={`/edit/${blog.id}`} className='btn btn-info'><i className="fas fa-edit"></i></Link>
-                                      <button onClick={ ()=>deleteBlog(blog.id) } className='btn btn-danger'><i className="fas fa-trash-alt"></i></button>
-                                  </td>
-                              </tr>
-                          )) }
-                      </tbody>
-                  </table>
-              </div>    
+  return (
+    <div className="container mt-4">
+      <Link to="/create" className="btn btn-primary mb-3">
+        <i className="fas fa-plus"></i> Add Blog
+      </Link>
+
+      <div className="row">
+        {blogs.map((blog) => (
+          <div key={blog.id} className="col-md-4 mb-4">
+            <Card>
+              <Card.Img
+                variant="top"
+                src={blog.Url_image}
+                style={{ height: "200px", objectFit: "cover" }}
+              />
+
+              <Card.Body>
+                <Card.Title>{blog.title}</Card.Title>
+                <Card.Text>{blog.content}</Card.Text>
+                <Link to={`/edit/${blog.id}`} className="btn btn-info me-2">
+                  <i className="fas fa-edit"></i> Edit
+                </Link>
+                <Button variant="danger" onClick={() => deleteBlog(blog.id)}>
+                  <i className="fas fa-trash-alt"></i> Delete
+                </Button>
+              </Card.Body>
+            </Card>
           </div>
+        ))}
       </div>
-  )
-
-}
-
-export default CompShowBlogs
+    </div>
+  );
+};
+export default ShowBlogs;
